@@ -1,4 +1,8 @@
 
+# pogram to find the merge sort and insertion sort
+
+
+import random
 def merge_sort(lst):
     if len(lst)>1:
         mid=len(lst)//2
@@ -8,7 +12,7 @@ def merge_sort(lst):
         merge_sort(right_half)
         i=j=k=0
         while i<len(left_half) and j<len(right_half):
-            if left_half[i] < right_half[j]:
+            if left_half[i]<right_half[j]:
                 lst[k]=left_half[i]
                 i+=1
             else:
@@ -30,21 +34,27 @@ def insertion_sort(arr):
         j=i-1
         while j>=0 and key<arr[j]:
             arr[j+1]=arr[j]
-            j-=1
+            j=j-1
         arr[j+1]=key
 my_list=[]
 for i in range(10):
     my_list.append(random.randint(0,999))
 print("\n unsorted list")
 print(my_list)
-print("sorting using insertion sort")
+print("\n sorted  insertion array")
 insertion_sort(my_list)
 print(my_list)
 my_list=[]
 for i in range(10):
     my_list.append(random.randint(0,999))
-print("\n unsorted list")
+print("\n sorted list")
 print(my_list)
-print("sorting using merge sort")
+print("sorted merge sort array")
 merge_sort(my_list)
 print(my_list)
+
+
+                 
+                
+       
+                    
