@@ -1,10 +1,37 @@
 
-val=int(input("enter the value:"))
-str_val=str(val)
-if str_val==str_val[::-1]:
-    print("palindrome")
+class PaliStr:
+    def __init__(self):
+       self.isPali = False
+    def chkPalindrome(self,myStr):
+        if myStr == myStr[::-1]:
+            self.isPali = True
+        else:
+            self.isPali= False
+        return self.isPali
+class PaliInt(PaliStr):
+    def __init__(self):
+      self.isPali= False
+    def chkPalindrome(self,val):
+        temp = val
+        rev = 0
+        while temp != 0:
+            dig = temp % 10
+            rev = (rev * 10)+dig
+            temp=temp//10
+        if val==rev:
+            self.isPali= True
+        else:
+            self.isPali = False
+        return self.isPali
+st = input("enter the string")
+stObj = PaliStr()
+if stObj.chkPalindrome(st):
+    print("given string is palindrome")
 else:
-    print("not palindrome")
-for i in range(10):
-    if str_val.count(str(i))>0:
-        print(str(i),"appears ",str_val.count(str(i)),"times ");
+    print("given string is not a palindrome")
+val = int(input("enter a integer"))
+intObj = PaliInt()
+if intObj.chkPalindrome(val):
+    print("given integer is palindrome")
+else:
+    print("given integer is not a palindrome")
